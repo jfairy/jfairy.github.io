@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+ul,dl,dt,dd{ margin:0; padding:0;}
+li{ list-style:none;}
+body{ font-size:14px; font-family:"微软雅黑";}
+th{height:30px; line-height:30px; font-weight:normal;}
+table{ border:1px solid #669999; border-collapse:collapse; width:90%; margin:10px auto; }
+td{ border:1px solid #669999; height:30px; line-height:30px; padding-left:6px; }
+.title{ width:10%;}
+dt{ font-weight:bold;}
+a{ color:#000; text-decoration:none;}
+a:hover{ color:#ff0000; text-decoration:underline;}
+</style>
+<script>
+window.onload=function()
+{
+	var oTable=document.getElementById("table");
+	var iRows=oTable.tBodies[0].rows.length;
+
+	for(var i=0;i<iRows;i++)
+	{
+		var iCells=oTable.tBodies[0].rows[i].cells.length;
+		for(var j=0;j<iCells;j++)
+		{
+			if(j%2==0)
+			{
+				oTable.tBodies[0].rows[i].cells[j].style.width="10%";
+				oTable.tBodies[0].rows[i].cells[j].style.background="#e0e0e0";
+			}else
+			{
+				if(i<=5)
+				{
+					oTable.tBodies[0].rows[i].cells[j].style.width="40%";
+				}
+				oTable.tBodies[0].rows[i].cells[j].style.background="#f3f3f3";
+			}
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<table id="table">
+	<thead>
+    	<tr>
+        	<th colspan="4">个人简历</th>
+        </tr>
+    </thead>
+	<tbody>
+        <tr>
+        	<td>姓 名</td>
+            <td>高静帆  </td>
+            <td>性别</td>	
+            <td>女</td>
+        </tr>
+        <tr>			
+        	<td>民 族</td>
+            <td>汉 族</td>
+            <td>出生日期</td>
+            <td>1990-02-27</td>
+        </tr>
+        <tr>			
+        	<td>工作经验</td>
+            <td>6年</td>
+            <td>居住地</td>
+            <td>海淀</td>			
+        </tr>
+        <tr>
+        	<td>求职意向</td>
+            <td>WEB前端开发</td>
+            <td>学历</td>
+            <td>大专</td>
+        </tr>
+        <tr>
+        	<td>目前状态</td>			
+            <td>在职</td>
+            <td>邮箱</td>
+            <td>782971700@qq.com</td>
+        </tr>
+        <tr>
+        	<td>联系电话</td>
+            <td>18210327727</td>
+            <td>毕业院校</td>
+            <td>南阳理工学院</td>			
+        </tr>
+        <tr>
+        	<td>专业技能</td>
+            <td colspan="3">
+            	<ul>
+                    <li>1、精通HTML+CSS网页布局与样式，能使用合适的结构编写兼容主流浏览器的页面布局；</li>
+                    <li>2、了解HTML5与CSS3.0，以及HTML 5新标签的语义；能适当运用CSS3使页面在兼容浏览器上效果更佳；</li>
+                    <li>3、熟悉原生Javascript，能脱离jQuery等类库编码；</li>
+                    <li>4、能运用模块化、面向对象的方式编程，编写组件；</li>
+                    <li>5、能熟练使用正则表达式；</li>
+                    <li>6、能熟练使用Ajax，与后台数据进行交互。</li>
+                    <li>7、熟练使用bootstrap，angularJs框架;</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+        	<td>个人网站</td>
+            <td colspan="3">
+            	<ul>
+                    <li>WebQQ（<a href="http://jfairy.sinaapp.com/" target="_blank">http://jfairy.sinaapp.com/</a>）</li>
+                    <li>仿老版腾讯QQ做的一个桌面应用，休闲时间所做。</li>
+                    <li>封装了move.js运动框架，用tween.js定义运动形式；</li>
+                    <li>用面向对象思想，封装拖拽对象，弹窗和日历对象；</li>
+                    <li>用css3实现一些圆角边框、边框阴影、倒影效果、文本编辑等小功能。</li>
+                </ul>
+				<strong>注意：</strong>
+				<ul>
+                     <li>在用面向对象思想编程类，要注意this的指向问题。在有定时器或者事件时，函数的this不在指向new出来的对象。通过call来解决这个问题。</li>
+                     <li>注意引用的问题，通过for来拷贝属性和方法。避免使用同一个内存空间，造成互相的影响。</li>
+                     <li>组件开发，注意将配置参数、方法、事件，三者进行分离，提高代码的复用性。</li>
+                     <li>日历组件，注意闰年2月的天数问题</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+        	<td>工作经历及项目经验</td>
+            <td colspan="3">
+                <dl>
+                    <dt>2013.2-2014.12  北京金源互动科技有限公司（上市） | 设计部 | 前端开发</dt>
+                    <dd>独立负责的前端项目：2014年：金源互动官网( <a href="http://www.jyhd.com/" target="_blank">http://www.jyhd.com/</a> )、好机友pc站（ <a href="http://www.haojiyou.com/" target="_blank">http://www.haojiyou.com/</a> ）、好机友wap站( <a href="http://m.haojiyou.com" target="_blank">http://m.haojiyou.com</a> )以及各类专题网站;2013年：11125游戏官网(<a href="http://www.11125.com" target="_blank">http://www.11125.com</a>), 成都9719 游戏官网：<a href="http://www.9719.com" target="_blank">http://www.9719.com</a> 以及爱玩助手app,好机友app的前端页面。</dd>
+                    <dd>工作内容：用html，css实现页面布局，用合适的结构编写兼容各个浏览器的页面。用js，jquery等实现页面的动态效果。优化论坛布局，后端界面布局。配合编辑更新网站。配合技术完成页面的优化上线工作。</dd>
+                </dl>
+                <dl>
+                    <dt>2011.10.9-2013.2.8  浙江业联科技有限公司 | 设计部 | 前端开发</dt>
+                    <dd>独立负责的前端项目：九乐棋牌官方网站（<a href="http://www.game9l.com" target="_blank">http://www.game9l.com</a>）、浙江业联科技网站(<a href="http://www.yeelnet.com" target="_blank">http://www.yeelnet.com</a> )以及各类专题网站等整个公司的web开发工作。</dd>
+                    <dd>工作内容：用html，css实现页面布局，用合适的结构编写兼容各个浏览器的页面。用js，jquery等实现页面的动态效果。配合技术完成页面的优化上线工作。</dd>
+                </dl>
+                <dl>
+                    <dt>2011.7-2011.9 北京东龙无限科技有限公司  | 编辑部 | 网页制作（实习）</dt>
+                    <dd>负责：民俗专题网站的页面制作。</dd>
+                    <dd>工作内容：用html和css实现页面布局，标签语义化，兼容各个浏览器。</dd>
+                </dl>
+            </td>
+        </tr>
+        <tr>
+        	<td>教育经历</td>
+            <td colspan="3">南阳理工学院 | 软件系 | 动漫设计与制作 </td>
+        </tr>
+        <tr>
+        	<td>培训经历</td>
+            <td colspan="3">2011.2-2011.6 妙味课堂web培训</td>
+        </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

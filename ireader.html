@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>电影</title>
+<style>
+body,ul{ margin:0; padding:0;}
+li{ list-style:none;}
+body{ font-size:14px; font-family:"微软雅黑"}
+#listContent{width:650px;margin:10px auto;}
+ul {overflow: hidden;}
+li {float: left; width:130px; text-align: center;}
+li a {color: #000; text-decoration: none;}
+li div {line-height: 30px; width:130px;height:30px; overflow:hidden;}
+li div.score {color: #555;}
+li img {width: 100px; height: 148px;}
+
+#pages { text-align: center; padding-top:30px;}
+#pages span {padding: 4px 10px; border: 1px solid #000; cursor: pointer;}
+#pages span.current {border-color: white;}
+</style>
+<script src="scripts/template-native.js"></script>
+<script>
+window.onload = function() {
+	
+	var page = 1;
+	var pre = 20;  // 一页放几个li
+	
+	var oListContent = document.getElementById('listContent');
+	
+	oListContent.onclick = function(ev) {
+		var e = ev || event;
+		
+		if (e.target.tagName.toUpperCase() == 'SPAN') {
+			page = parseInt(e.target.innerHTML);
+			getList();
+		}
+		
+	}
+	
+	getList();
+	
+	function getList() {
+		var oScript = document.createElement('script');
+		
+		var start = (page - 1) * pre;
+		// 获取豆瓣的top250电影接口
+		oScript.src = 'http://api.douban.com/v2/movie/top250?callback=showList&start='+ start +'&count=' + pre;
+		
+		document.body.appendChild(oScript);
+	}
+	
+	window.showList = function(data) {
+		
+		data.page = page;
+		data.pages=10;
+		oListContent.innerHTML = template('templateList', data);
+	}
+	
+}
+</script>
+</head>
+
+<body>
+	<div id="listContent"></div>
+    <script id="templateList" type="text/html">
+		<h2>电影</h2>
+		<ul id="list">
+			<%subjects.forEach(function(arr){%>
+				<li>
+					<a href="detail.html?id=<%=arr.id%>" target="_blank">
+						<img src="<%=arr.images.medium%>" />
+						<div class="name"><%=arr.title%></div>
+						<div class="score">豆瓣评分：<%=arr.rating.average%></div>
+					</a>
+				</li>
+			<%})%>
+		</ul>
+		<div id="pages">
+			<%for (var i=1;i<=pages;i++) {%>
+				<%if (i == page) {%>
+					<span class="current"><%=i%></span>
+				<%}else{%>
+					<span><%=i%></span>
+				<%}%>
+			<%}%>
+		</div>
+    </script>
+</body>
+</html>

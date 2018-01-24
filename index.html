@@ -1,10 +1,277 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>jfairy个人网站</title>
+<meta charset="utf-8">
+<title>高静帆-webQQ</title>
+<link rel="stylesheet" href="css/main.css">
+<script src="scripts/g.js"></script>
+<script src="scripts/move.js"></script>
+<script src="scripts/date.js"></script>
+<script src="scripts/Drag.js"></script>
+<script src="scripts/popview.js"></script>
+<script src="scripts/load.js"></script>
+
 </head>
+
 <body>
-	
+    <!-- 背景切换 -->
+    <div class="bg" id="bg">
+        <img src="images/41.jpg">
+    </div>
+    <div class="arrow" id="arrow">
+    	<a href="javascript:;" class="prev"></a>
+        <a href="javascript:;" class="next"></a>
+    </div>
+
+   <!-- 钟表挂件 -->
+    <div id="clock">
+        <div id="dial">
+        </div>
+        <div id="hand">
+            <div id="hour"></div>
+            <div id="min"></div>
+            <div id="sec"></div>
+            <div id="centre"></div>
+        </div>
+    </div>
+    <!-- 桌面便签 -->
+    <div class="page foldtl" id="page"> 
+      <h2 id="bq">便签</h2> 
+      <div contenteditable="true" style="width:152px; height:160px; ">好心情可以在线记录哦！继续抒写吧...</div>
+    </div> 
+    <!-- 桌面 -->
+    <div class="desk">
+    	<!-- 左侧菜单 -->
+        <div class="side">
+            <div class="s_menu">
+                <ul id="s_menu_icon">
+                    <li id="li1" title="应用市场" data-href="http://android.myapp.com/"><img src="icon/appmarket.png" alt="" width="44"/></li>
+                    <li title="QQ" data-href="https://mail.qq.com/cgi-bin/loginpage"><img src="icon/big.png" alt="" width="44"/></li>
+                    <li title="腾讯微博" data-href="http://t.qq.com/"><img src="icon/weibo.png" alt="" width="44"/></li>
+                    <li title="QQ邮箱" data-href="https://mail.qq.com/cgi-bin/loginpage"><img src="icon/mail.png" alt="" width="44"/></li>
+                    <li title="QQ网盘" data-href="http://www.weiyun.com/index.html"><img src="icon/internet.png" alt="" width="44"/></li>
+                    <li title="QQ空间" data-href="http://qzone.qq.com/"><img src="icon/zone.png" alt=""/ width="44"></li>
+                </ul>
+            </div>
+            <div class="s_bot">
+            	<div class="s_bot_ticon">
+                	<a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                </div>
+                <ul class="s_bot_bicon">
+                	<li class="s_b_sicon">
+                    	<div class="clear">
+                            <a href="javascript:;" class="biocn1"></a>
+                            <a href="javascript:;" class="biocn2"></a>
+                        </div>
+                    </li>
+                    <li class="s_b_sicon">
+                    	<div class="clear">
+                            <a href="javascript:;" class="biocn3"></a>
+                            <a href="javascript:;" class="biocn4"></a>
+                        </div>
+                    </li>
+                    <li class="s_b_bicon">
+                    	<div>
+                    		<a href="javascript:;"></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 桌面APP -->
+        <div class="main">
+        	<div class="mainmenu" id="mainmenu">
+            	<div class="head_portraint">
+                	<img src="images/headerimg.jpg" alt=""/>
+                </div>
+                <ul>
+                    <li class="current">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                </ul>
+                <div class="mainmenu_r">
+                	<div class="clear">
+                        <a class="date" id="date"></a>
+                        <a class="search"></a>
+                    </div>
+                </div>
+            </div>
+        	<div class="deskmain" id="deskmain">
+            
+            	<ul class="clear" style="left:0px;opacity:1;">
+                    <li title="电影" data-href="ireader.html">
+                    	<a href="javascript:;">
+                        	<span>
+                            	<img src="icon/qqvedio.png" alt=""/>
+                            </span>
+                            <b>电影</b>
+                        </a>
+                    </li>
+                     <li title="个人简历" data-href="resume.html">
+                    	<a href="javascript:;">
+                        	<span>
+                            	<img src="images/word.png" alt=""/>
+                            </span>
+                            <b>个人简历</b>
+                        </a>
+                    </li>
+                    <li title="说明文档" data-href="txt.html">
+                    	<a href="javascript:;">
+                        	<span>
+                            	<img src="icon/TXT File.png" alt=""/>
+                            </span>
+                            <b>说明文档</b>
+                        </a>
+                    </li>
+                	<li title="花瓣网" data-href="http://huaban.com/">
+                    	<a href="javascript:;">
+                        	<span>
+                            	<img id="img1" src="icon/huaban.png" alt=""/>
+                            </span>
+                            <b>花瓣网</b>
+                        </a>
+                    </li>           
+                    
+                    <li title="豆瓣电台" data-href="http://douban.fm/">
+                    	<a href="javascript:;">
+                        	<span>
+                            	<img src="icon/douban.png" alt=""/>
+                            </span>
+                            <b>豆瓣电台</b>
+                        </a>
+                    </li> 
+                    <li title="3366小游戏" data-href="http://www.3366.com/flash/113140.shtml?ADTAG=copyLink.btn.3366">
+                    	<a href="javascript:;">
+                        	<span>
+                            	<img src="icon/3366.png" alt=""/>
+                            </span>
+                            <b>3366</b>
+                        </a>
+                    </li> 
+                </ul>
+                <ul class="clear">
+                    <li title="腾讯视频" data-href="http://v.qq.com/">
+                    	<a href="javascript:;">
+                        	<span>
+                            	<img src="icon/vadio.png" alt=""/>
+                            </span>
+                            <b>腾讯视频</b>
+                        </a>
+                    </li>
+                    <li title="百度地图" data-href="http://map.baidu.com/">
+                    	<a href="javascript:;">
+                        	<span>
+                           	 	<img src="icon/baidumap.png" alt=""/>
+                            </span>
+                            <b>百度地图</b>
+                        </a>
+                    </li>
+                     <li title="搜狗地图" data-href="http://map.sogou.com/">
+                    	<a href="javascript:;">
+                        	<span>
+                           	 	<img src="icon/sougou.png" alt=""/>
+                            </span>
+                            <b>搜狗地图</b>
+                        </a>
+                    </li>
+                    <li title="新浪微博" data-href="http://weibo.com/?c=spr_sinamktbd_bd_baidub_weibo_t001">
+                    	<a href="javascript:;">
+                        	<span>
+                           	 	<img src="icon/sinaweibo.png" alt=""/>
+                            </span>
+                            <b>新浪微博</b>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="clear">
+                	<li title="3366小游戏" data-href="http://www.3366.com/flash/113140.shtml?ADTAG=copyLink.btn.3366">
+                    	<a href="javascript:;">
+                        	<span>
+                            	<img src="icon/3366.png" alt=""/>
+                            </span>
+                            <b>3366</b>
+                        </a>
+                    </li>
+                    <li>
+                    	<a href="javascript:;">
+                        	<span>
+                            	<img src="icon/doudizhu.png" alt=""/>
+                            </span>
+                            <b>欢乐斗地主</b>
+                        </a>
+                    </li>
+                    <li>
+                    	<a href="javascript:;">
+                        	<span>
+                            	<img src="icon/qqbaby.png" alt=""/>
+                            </span>
+                            <b>QQ宝贝</b>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="clear">
+                	<li>
+                    	<a href="javascript:;">
+                        	<span>
+                            	<img src="icon/vadio.png" alt="">
+                            </span>
+                            <b>腾讯视频</b>
+                        </a>
+                    </li>
+                     <li>
+                    	<a href="javascript:;">
+                        	<span>
+                            	<img src="icon/doudizhu.png" alt=""/>
+                            </span>
+                            <b>欢乐斗地主</b>
+                        </a>
+                    </li>
+                    <li>
+                    	<a href="javascript:;">
+                        	<span>
+                            	<img src="icon/qqbaby.png" alt=""/>
+                            </span>
+                            <b>QQ宝贝</b>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="contextmenu" id="contextmenu">
+    	<ul>
+            <li>刷新</li>
+            <li>
+            	<h4>排列方式</h4>
+                <ul class="child_ul">
+                	<li>横排</li>
+                    <li>竖排</li>
+                </ul>
+            </li>
+        </ul>
+        <ul> 
+            <li>主题设置</li>
+            <li>
+            	<h4>图标设置</h4>
+                <ul class="child_ul">
+                	<li>小图标</li>
+                    <li>大图标</li>
+                    <li>超大图标</li>
+                </ul>
+            </li>
+            <li>系统设置</li>
+        </ul>
+        <ul>
+        	<li>更换背景</li>
+        </ul>
+        <ul>
+            <li>反馈</li>
+            <li>注销</li>
+        </ul>
+    </div>
 </body>
 </html>

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>电影详情</title>
+<style>
+body,h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,ol,p{ margin:0; padding:0;}
+li{ list-style:none;}
+#detailContent{ width:90%; margin:10px auto; overflow:hidden;}
+#detailContent img{ width:30%; float:left;}
+#detailContent .detail{ width:68%; float:right;}
+.comlist{ overflow:hidden; clear:both; margin:10px 0;}
+ul li{ float:left; width:50%; height:24px; line-height:24px;}
+ul span{ float:left; width:50%;}
+ul i{ float:left; font-style:normal;}
+p{ line-height:24px; text-indent:28px; margin:10px 0;}
+</style>
+<script src="scripts/template-native.js"></script>
+<script>
+
+var $_GET = {};
+window.location.search.replace(/(\w+)=(\w+)/g,function($0, $1, $2) {
+	$_GET[$1] = $2;
+});
+
+//console.log($_GET);
+
+
+window.onload = function() {
+	
+	var oDetailContent = document.getElementById('detailContent');
+	
+	if ($_GET.id) {
+		getDetail();
+	}
+	
+	function getDetail() {
+		var oScript = document.createElement('script');
+		
+		oScript.src = 'http://api.douban.com/v2/movie/subject/' + $_GET.id + '?callback=showDetail';
+		
+		document.body.appendChild(oScript);
+	}
+	
+	window.showDetail = function(data) {
+		oDetailContent.innerHTML = template('templateDetail', data);
+	}
+	
+}
+</script>
+</head>
+
+<body>
+	<div id="detailContent"></div>
+    <script id="templateDetail" type="text/html">
+		<img src="<%=images.large%>" />
+		<div class="detail">
+			<h2><%=title%></h2>
+			<ul class="comlist">
+			    <li>
+					<span>豆瓣评分：</span>
+					<i><%=rating.average%></i>
+				</li>
+				<li>
+					<span>视频综合指数：</span>
+					<i><%=reviews_count%></i>
+				</li>
+				<li>
+					<span>导演：</span>
+					<i><%=directors[0].name%></i>
+				</li>
+				<li>
+					<span>国家/地区：</span>
+					<i>
+						<%for (var i=0; i<countries.length; i++) {%>
+							<%=countries[i]%> 
+						<%}%>
+					</i>
+				</li>
+             </ul>
+		<h4>简介：</h4>
+		<p><%=summary%></p>
+	    </div>
+
+		</script>
+    </script>
+</body>
+</html>
